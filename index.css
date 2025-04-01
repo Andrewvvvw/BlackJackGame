@@ -19,11 +19,14 @@ h1 {
 
 button {
     color: #016f32;
-    width: 20%;
     background: goldenrod;
-    padding-top: 5px;
-    padding-bottom: 5px;
+
+    width: 15vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size: clamp(16px, 2vw, 24px);
     font-weight: bold;
+
     border: none;
     border-radius: 2px;
     margin-bottom: 2px;
