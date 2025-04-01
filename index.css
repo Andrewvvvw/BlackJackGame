@@ -1,16 +1,27 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    background-image: url("images/table.png");
+    background-image: url("images/table.jpg");
     background-size: cover;
     font-weight: bold;
     color: white;
     text-align: center;
     font-size: clamp(24px, 5vw, 48px);
-    overflow-x: hidden; 
+
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    height: 100vh; /* Ensures it covers the full viewport height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 h1 {
     color: goldenrod;
+    background-color: #016f32; 
+    display: inline-block;
+    border: 0.5vw solid goldenrod;
+    border-radius: 10vw;
+    padding: 2vw;
 }
 
 #message-el {
