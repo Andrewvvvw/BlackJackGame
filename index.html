@@ -8,14 +8,20 @@
     </head>
     <body>
         <h1>Blackjack</h1>
+
         <div class = "board">
             <p class="message" id="message-el">Want to play a round?</p>
             <p class="message" id="cards-el">Cards:</p>
             <p class="message" id="sum-el">Sum:</p>
-            <button id = "start-btn" class="gameManagement-btn">START GAME</button>
+            <button id = "newGame-btn" class="gameManagement-btn">NEW GAME</button>
             <button id = "newCard-btn" class="gameManagement-btn">NEW CARD</button>
-            <p id="player-el"></p>
+            <button id = "endGame-btn" class="gameManagement-btn">END GAME</button>
+            <div class = "money">
+                <p id="player-el"></p>
+                <p id = "bet-el"></p>
+            </div>
         </div>
+
         <div id="nameModal" class="modal">
             <div class="modal-content">
                 <h2>Enter Your Name</h2>

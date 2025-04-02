@@ -21,32 +21,30 @@ h1 {
     display: inline-block;
     border: 0.5vw solid goldenrod;
     border-radius: 10vw;
-    padding: 2vw;
-    margin-top: 1vh;
+    padding: 1vw;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
 }
 
 .message {
     font-style: italic;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
 }
 
 .board {
-    position: absolute;
+    /* position: absolute;
     top: 50%;  
     left: 50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);  */
     width: 100%; 
     text-align: center;
-    padding: 20px;
-    border-radius: 15px;
+    padding-top : 1vh;
 }
 
 
 button {
     width: 15vw;
     
-    font-size: clamp(16px, 2vw, 24px);
+    font-size: clamp(1vw, 2vw, 3vw);
     font-weight: bold;
 
     border: none;
@@ -59,6 +57,16 @@ button {
 
     padding-top: 2vh;
     padding-bottom: 2vh;
+}
+
+.money {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#player-el {
+    margin-right: 3vw;
 }
 
 .modal {
@@ -79,7 +87,7 @@ button {
     text-align: center;
     width: 40vw;
     box-sizing: border-box;
-    display: flex;
+
     display: flex; /* Enables flexbox */
     flex-direction: column; /* Stacks elements vertically */
     align-items: center; /* Centers elements horizontally */
@@ -92,6 +100,7 @@ button {
     text-align: center;
     border: none;
     border-radius: 0.5vh;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .modal-content button {
