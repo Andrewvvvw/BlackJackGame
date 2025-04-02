@@ -1,7 +1,4 @@
-let player = {
-    name: "Andrew",
-    chips: 200
-}
+let player = {}
 
 let cards = []
 let sum = 0
@@ -15,8 +12,7 @@ let playerEl = document.getElementById("player-el")
 
 const startBtn = document.getElementById("start-btn")
 const newCardBtn = document.getElementById("newCard-btn")
-
-playerEl.textContent = player.name + ": $" + player.chips
+const submitNameBtn = document.getElementById("submitName-btn")
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
@@ -65,5 +61,21 @@ newCardBtn.addEventListener("click", function newCard() {
         sum += card
         cards.push(card)
         renderGame()        
+    }
+})
+
+
+window.onload = function () {
+    document.getElementById("nameModal").style.display = "flex";
+};
+
+submitNameBtn.addEventListener("click", function saveName() {
+    player.name = document.getElementById("playerName").value;
+    player.chips = 200
+    if (player.name.trim() !== "") {
+        document.getElementById("nameModal").style.display = "none"; // Hide modal
+        playerEl.textContent = player.name + ": $" + player.chips
+    } else {
+        alert("Please enter a valid name.");
     }
 })
