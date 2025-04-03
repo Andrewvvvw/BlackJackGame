@@ -1,6 +1,6 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    background-image: url("images/table.jpg");
+    background-image: url("images/table.png");
     background-size: cover;
     font-weight: bold;
     color: white;
@@ -13,6 +13,11 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers elements horizontally */
+    gap: 2vh; /* Adds spacing between elements */
 }
 
 h1 {
@@ -26,23 +31,21 @@ h1 {
     margin-bottom: 0.5vh;
 }
 
-.message {
-    font-style: italic;
-}
-
 .board {
     /* position: absolute;
     top: 50%;  
     left: 50%;
     transform: translate(-50%, -50%);  */
-    width: 100%; 
-    text-align: center;
+    width: 70%; 
     padding-top : 1vh;
+    background-color: rgba(255, 255, 153, 0.3);
+    border: none;
+    border-radius: 3%;
 }
 
 
 button {
-    width: 15vw;
+    width: 20%;
     
     font-size: clamp(1vw, 2vw, 3vw);
     font-weight: bold;
@@ -76,16 +79,15 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background: rgba(0, 0, 0, 0.05); 
     text-align: center;
-    width: 40vw;
+    width: 40%;
     box-sizing: border-box;
 
     display: flex; /* Enables flexbox */
@@ -108,6 +110,7 @@ button {
     color: white;
     padding: 1vh 1vh;
     cursor: pointer;
+    width: 50%;
 }
 
 .modal-content button:hover {

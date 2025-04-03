@@ -1,9 +1,10 @@
 let player = {}
 
 let cards = []
-let sum = 0
+let playerSum = 0
 let hasBlackJack = false
 let isAlive = false
+let dealerIsAlive = true
 let message = ""
 let currentBet = 10
 let dealerSum = 0
@@ -36,7 +37,8 @@ newGameBtn.addEventListener("click", function startGame() {
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
-    sum = firstCard + secondCard
+    playerSum = firstCard + secondCard
+    dealerSum = getRandomCard()
     renderGame()
 })
 
@@ -46,10 +48,10 @@ function renderGame() {
         cardsEl.textContent += cards[i] + " "
     }
     
-    sumEl.textContent = "Sum: " + sum
-    if (sum <= 20) {
+    sumEl.textContent = "Sum: " + playerSum
+    if (playerSum <= 20) {
         message = "Do you want to draw a new card?"
-    } else if (sum === 21) {
+    } else if (playerSum === 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
     } else {
@@ -61,22 +63,39 @@ function renderGame() {
 
 }
 
+function getDealerCards()
+{
+    while(dealerSum < 17){
+        dealerSum += getRandomCard()
+    }
+    if(dealerSum > 21){
+        dealerIsAlive = false
+    }
+
+}
 
 endGameBtn.addEventListener("click", function(){
     if (isAlive === true && hasBlackJack === false) {
-        dealerSum = Math.floor( Math.random()*19 ) + 2
-        if(21 - dealerSum < 21 - sum){
-            message = `You lost, dealer got ${dealerSum}!`
+        getDealerCards()
+        if( dealerIsAlive === false){
+            message = `You won, dealer got ${dealerSum}!`
             messageEl.textContent = message
         }
-        else if(21 - dealerSum > 21 - sum){
-                message = `You won, dealer got ${dealerSum}!`
+        else{
+                if(21 - dealerSum < 21 - playerSum){
+                message = `You lost, dealer got ${dealerSum}!`
                 messageEl.textContent = message
             }
-            else {
-                message = `It's a draw, dealer got ${dealerSum}!`
-                messageEl.textContent = message
-            }
+            else if(21 - dealerSum > 21 - playerSum){
+                    message = `You won, dealer got ${dealerSum}!`
+                    messageEl.textContent = message
+                }
+                else {
+                    message = `It's a draw, dealer got ${dealerSum}!`
+                    messageEl.textContent = message
+                }
+        }
+        
         isAlive = false
     }
 })
@@ -84,7 +103,7 @@ endGameBtn.addEventListener("click", function(){
 newCardBtn.addEventListener("click", function() {
     if (isAlive === true && hasBlackJack === false) {
         let card = getRandomCard()
-        sum += card
+        playerSum += card
         cards.push(card)
         renderGame()        
     }
